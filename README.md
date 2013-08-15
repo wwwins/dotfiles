@@ -5,7 +5,7 @@ My config files.
 
 ### Shell:
 
-Switch zsh and install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
+Switch to zsh and install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 
 ### Theme:
 
