@@ -19,8 +19,8 @@ set hlsearch
 set ignorecase
 set incsearch
 
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 "set title
 set cindent
 set smartindent
@@ -29,7 +29,10 @@ set smartcase
 set autoindent
 " show matching ) and }
 set showmatch
-"set expandtab
+set expandtab
+
+" turn off expandtab for Makefile
+autocmd FileType make setlocal noexpandtab
 
 " disable sound on errors
 set noerrorbells
@@ -59,3 +62,7 @@ let tagbar_type_haxe={
 	\ 'kinds':['p:package','i:interface', 'c:class', 'e:enum', 't:typedef', 'v:variable', 'f:function']
 	\ }
 nmap <F8> :TagbarToggle<CR>
+
+" vim-easy-align
+vnoremap <silent> <Enter> :EasyAlign<Enter>
+
