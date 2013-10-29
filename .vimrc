@@ -47,25 +47,61 @@ filetype on
 
 au BufNewFile,BufRead *.hx set filetype=haxe
 au BufNewFile,BufRead *.hxml set filetype=hxml
+au BufNewFile,BufRead *.mm set filetype=objc
+au BufNewFile,BufRead *.m set filetype=objc
 
-" Ctags
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+"" Ctags
+"let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+"
+"" taglist
+"let Tlist_Show_One_File=1
+"let Tlist_Exit_OnlyWindow=1
+"let Tlist_Use_Right_Window=1
+"let tlist_haxe_settings='haxe;f:function;v:variable;c:class;i:interface;p:package'
+"map <f9> :Tlist<CR>
 
-" taglist
-let Tlist_Show_One_File=1
-let Tlist_Exit_OnlyWindow=1
-let Tlist_Use_Right_Window=1
-let tlist_haxe_settings='haxe;f:function;v:variable;c:class;i:interface;p:package'
-map <f9> :Tlist<CR>
-
-" tagbar
+" tagbar: Press <F8> and switch by Ctrl+w+w
 let tagbar_ctags_bin='/usr/local/bin/ctags'
+" haxe
 let tagbar_type_haxe={
-	\ 'ctagstype':'haxe',
-	\ 'kinds':['p:package','i:interface', 'c:class', 'e:enum', 't:typedef', 'v:variable', 'f:function']
-	\ }
+  \ 'ctagstype':'haxe',
+  \ 'kinds':['p:package','i:interface', 'c:class', 'e:enum', 't:typedef', 'v:variable', 'f:function']
+  \ }
+" objc
+let tagbar_type_objc = {
+  \ 'ctagstype': 'objc',
+  \ 'kinds': [
+  \   'i:class interface',
+  \   'I:class implementation',
+  \   'P:protocol',
+  \   'M:method',
+  \   't:typedef',
+  \   'v:variable',
+  \ ],
+  \ 'sro': ' ',
+  \}
 nmap <F8> :TagbarToggle<CR>
 
 " vim-easy-align
 vnoremap <silent> <Enter> :EasyAlign<Enter>
 
+"" Vundle install :BundleInstall
+"set nocompatible
+"filetype off
+"set rtp+=~/.vim/bundle/vundle/
+"call vundle#rc()
+"Bundle 'gmarik/vundle'
+""Bundle 'Valloric/YouCompleteMe'
+"Bundle 'jdonaldson/vaxe'
+"Bundle 'Shougo/neocomplcache'
+"    let g:neocomplcache_enable_at_startup = 1 " always load neocc
+"    let g:neocomplcache_enable_auto_select = 1 " auto-popup!
+"    if !exists('g:neocomplcache_omni_patterns')
+"        let g:neocomplcache_omni_patterns = {} " set a default pattern dict
+"    endif
+"
+"    " this tells neocc when to try for completions... after '.', '(', etc.
+"    let g:neocomplcache_omni_patterns.haxe = '\v([\]''"\)]|\w|(^\s*))(\.|\()'
+"
+"filetype plugin indent on
+"" Vundle end
