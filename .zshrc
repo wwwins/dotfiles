@@ -27,7 +27,7 @@ ZSH_THEME="ys"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
+DISABLE_CORRECTION="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
@@ -65,6 +65,7 @@ alias cdgit="cd ~/github"
 alias cdp="cd ~/Projects"
 alias cdd="cd ~/Downloads"
 alias mvim="/usr/local/Cellar/macvim/7.4-70/MacVim.app/Contents/MacOS/Vim"
+alias diff="colordiff -ruN"
 
 export LANG="zh_TW.UTF-8"
 export LC_COLLATE="zh_TW.UTF-8"
