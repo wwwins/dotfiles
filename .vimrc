@@ -31,6 +31,9 @@ set autoindent
 set showmatch
 set expandtab
 
+" 上下捲動時留三行距離
+set scrolloff=3
+
 " turn off expandtab for Makefile
 autocmd FileType make setlocal noexpandtab
 
