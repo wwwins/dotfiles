@@ -8,3 +8,14 @@
 --regex-haxe=/^[ \t]*(extern[ \t]+)?interface[ \t]+([A-Za-z0-9_]+)/\2/i,interface/
 --regex-haxe=/^[ \t]*typedef[ \t]+([A-Za-z0-9_]+)/\1/t,typedef/
 --regex-haxe=/^[ \t]*enum[ \t]+([A-Za-z0-9_]+)/\1/e,enum/
+
+--langdef=objc
+--langmap=objc:.m..mm
+--regex-objc=/\@interface[[:space:]]+([[:alnum:]_]+)/\1/i,class interface/
+--regex-objc=/\@implementation[[:space:]]+([[:alnum:]_]+)/\1/I,class implementation/
+--regex-objc=/\@protocol[[:space:]]+([[:alnum:]_]+)/\1/P,protocol/
+--regex-objc=/([-+])[[:space:]]*\([[:alpha:]_][^)]*\)[[:space:]]*([[:alpha:]_][^:]+)[^;]*[[:space:]]*;[[:space:]]*$/\1\2/N,method declaration/
+--regex-objc=/([-+])[[:space:]]*\([[:alpha:]_][^)]*\)[[:space:]]*([[:alpha:]_][^:]+)[^;]*[[:space:]]*$/\1\2/M,method definition/
+--regex-objc=/^[^#@[:space:]][^=]*[[:space:]]([[:alpha:]_][[:alnum:]_]*)[[:space:]]*=/\1/v,variable definition/
+--regex-objc=/^[[:space:]]*typedef[[:space:]][^;]+[[:space:]]([[:alpha:]_][[:alnum:]]*)[[:space:]]*;/\1/t,typedef/
+
