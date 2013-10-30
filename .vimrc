@@ -85,6 +85,9 @@ nmap <F8> :TagbarToggle<CR>
 " vim-easy-align
 vnoremap <silent> <Enter> :EasyAlign<Enter>
 
+" astyle
+nmap <F9> :%!astyle -bps2 --brackets=attach --convert-tabs --mode=cs<CR>
+
 "" Vundle install :BundleInstall
 "set nocompatible
 "filetype off
