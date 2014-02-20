@@ -1,17 +1,17 @@
 [user]
-	name = wwwins
-	email = wwwins@aaa.bbb.ccc
+  name        = wwwins
+  email       = wwwins@aaa.bbb.ccc
 [push]
-	default = simple
+  default     = simple
 [help]
-	autocorrect = 1
+  autocorrect = 1
 [apply]
-	whitespace = nowarn
+  whitespace  = nowarn
 [color]
-	ui = auto
-	branch = auto
-	status = auto
-	diff = auto
+  ui          = auto
+  branch      = auto
+  status      = auto
+  diff        = auto
 [core]
-  autocrlf = input
-  safecrlf = false
+  autocrlf    = input
+  safecrlf    = false
