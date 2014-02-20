@@ -1,3 +1,16 @@
 [user]
 	name = wwwins
 	email = wwwins@aaa.bbb.ccc
+[push]
+	default = simple
+[help]
+	autocorrect = 1
+[apply]
+	whitespace = nowarn
+[color]
+	ui = auto
+	branch = auto
+	status = auto
+	diff = auto
+[core]
+	autocrlf = input
