@@ -13,4 +13,5 @@
 	status = auto
 	diff = auto
 [core]
-	autocrlf = input
+  autocrlf = input
+  safecrlf = false
