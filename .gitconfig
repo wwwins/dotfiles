@@ -9,11 +9,15 @@
   whitespace  = nowarn
 [color]
   ui          = auto
-  branch      = auto
-  status      = auto
-  diff        = auto
 [core]
   autocrlf    = input
   safecrlf    = false
 [alias]
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = blue bold
+[merge]
+	tool = vimdiff
