@@ -96,5 +96,4 @@ export LC_TIME="zh_TW.UTF-8"
 export LC_ALL=
 
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
+export PATH="$HOME/Library/Python/2.7/bin:$PATH"
