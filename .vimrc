@@ -18,6 +18,7 @@ set ruler
 set hlsearch
 set ignorecase
 set incsearch
+nnoremap ,<space> :nohlsearch<CR>
 
 set shiftwidth=2
 set tabstop=2
@@ -30,6 +31,9 @@ set autoindent
 " show matching ) and }
 set showmatch
 set expandtab
+
+" visual autocomplete for command menu
+set wildmenu
 
 " 上下捲動時留三行距離
 set scrolloff=3
@@ -52,6 +56,7 @@ au BufNewFile,BufRead *.hx set filetype=haxe
 au BufNewFile,BufRead *.hxml set filetype=hxml
 au BufNewFile,BufRead *.mm set filetype=objc
 au BufNewFile,BufRead *.m set filetype=objc
+au BufNewFile,BufRead *.py set filetype=python tabstop=8 shiftwidth=4 softtabstop=4 
 
 "" Ctags
 "let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
