@@ -1,5 +1,5 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -11,39 +11,48 @@ ZSH_THEME="ys"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Set to this to use case-sensitive completion
+# Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Comment this out to disable bi-weekly auto-update checks
+# Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
-# Uncomment to change how often before auto-updates occur? (in days)
+# Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
 
-# Uncomment following line if you want to disable colors in ls
+# Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
 
-# Uncomment following line if you want to disable autosetting terminal title.
+# Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment following line if you want to disable command autocorrection
-DISABLE_CORRECTION="true"
+# Uncomment the following line to disable command auto-correction.
+# DISABLE_CORRECTION="true"
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
+# Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
 
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git z)
 
 source $ZSH/oh-my-zsh.sh
 
+# User configuration
 # Customize to your needs...
 alias c="clear"
 alias cls="clear"
@@ -62,12 +71,21 @@ alias psr="psu root"
 alias psu="ps -U"
 alias s="screen"
 alias cdgit="cd ~/github"
-alias cdp="cd ~/Projects"
+alias cdp="cd ~/iOSProjects"
 alias cdd="cd ~/Downloads"
 alias mvim="/usr/local/Cellar/macvim/7.4-70/MacVim.app/Contents/MacOS/Vim"
 alias diff="colordiff -bruN"
 alias gcd="git-icdiff"
+alias mntla="mkdir -p /Volumes/lala; mount -t smbfs smb://Jhuang05@XXXX.XX.XXXXX.global.loc/lala /Volumes/lala"
+alias msg="nc 192.168.200.100 12345"
+alias autopep8="autopep8 --in-place --aggressive --aggressive --max-line-length 120"
+alias scanssh="nmap -p 22 --open -sV 10.65.136.0/24"
+alias httpdump="sudo tcpdump -i en5 -n -t -l -s 1024 -q -A 'tcp port 80'"
+alias killcamera="sudo killall VDCAssistant"
+alias top="top -u"
 
+export PYTHONSTARTUP=~/.pythonrc
+export THEOS=/opt/theos
 export LANG="zh_TW.UTF-8"
 export LC_COLLATE="zh_TW.UTF-8"
 export LC_CTYPE="zh_TW.UTF-8"
@@ -77,4 +95,6 @@ export LC_NUMERIC="zh_TW.UTF-8"
 export LC_TIME="zh_TW.UTF-8"
 export LC_ALL=
 
-export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:/Users/wwwins/Downloads/flascc/sdk/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+# export MANPATH="/usr/local/man:$MANPATH"
+
