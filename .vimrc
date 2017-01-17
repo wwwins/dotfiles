@@ -11,7 +11,7 @@ set cursorline
 " 顯示行數
 set nu
 
-" 右下角狀態列 
+" 右下角狀態列
 set ruler
 
 " 進擊的 search
@@ -48,7 +48,10 @@ autocmd FileType make setlocal noexpandtab
 set noerrorbells
 set novisualbell
 
-set pastetoggle=<F11>
+" Allow usage of mouse in all mode
+set mouse=a
+
+set pastetoggle=<F10>
 
 filetype on
 
@@ -56,7 +59,8 @@ au BufNewFile,BufRead *.hx set filetype=haxe
 au BufNewFile,BufRead *.hxml set filetype=hxml
 au BufNewFile,BufRead *.mm set filetype=objc
 au BufNewFile,BufRead *.m set filetype=objc
-au BufNewFile,BufRead *.py set filetype=python tabstop=8 shiftwidth=4 softtabstop=4 
+au BufNewFile,BufRead *.py set filetype=python tabstop=8 shiftwidth=4 softtabstop=4
+au BufNewFile,BufRead *.md set filetype=markdown
 
 "" Ctags
 "let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
