@@ -59,9 +59,9 @@ function! ToggleRelativeOn()
 endfunction
 
 au FocusLost * call ToggleRelativeOn()
-au FocusGained * call ToggleRelativeOn() 
-au InsertEnter * call ToggleRelativeOn() 
-au InsertLeave * call ToggleRelativeOn() 
+au FocusGained * call ToggleRelativeOn()
+au InsertEnter * call ToggleRelativeOn()
+au InsertLeave * call ToggleRelativeOn()
 
 set pastetoggle=<F10>
 
