@@ -51,6 +51,18 @@ set novisualbell
 " Allow usage of mouse in all mode
 set mouse=a
 
+" Toggle relative line numbers
+set rnu
+function! ToggleRelativeOn()
+    set rnu!
+    set nu
+endfunction
+
+au FocusLost * call ToggleRelativeOn()
+au FocusGained * call ToggleRelativeOn() 
+au InsertEnter * call ToggleRelativeOn() 
+au InsertLeave * call ToggleRelativeOn() 
+
 set pastetoggle=<F10>
 
 filetype on
