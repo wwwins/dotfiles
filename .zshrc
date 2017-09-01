@@ -88,6 +88,9 @@ alias piplay="mplayer -fps 200  ffmpeg://tcp://raspberrypi.local:2222"
 alias t="trans -b -e google :zh-TW"
 alias avi2webm='f() { ffmpeg -i $1 -lossless 1 -an output.webm; };f'
 alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code -r'
+# for meshlabserver
+# https://github.com/cnr-isti-vclab/meshlab/issues/64
+alias meshlabserver='/Applications/meshlab.app/Contents/MacOS/meshlabserver'
 
 export PYTHONSTARTUP=~/.pythonrc
 export THEOS=/opt/theos
