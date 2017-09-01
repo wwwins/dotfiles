@@ -87,7 +87,7 @@ alias top="top -u"
 alias piplay="mplayer -fps 200  ffmpeg://tcp://raspberrypi.local:2222"
 alias t="trans -b -e google :zh-TW"
 alias avi2webm='f() { ffmpeg -i $1 -lossless 1 -an output.webm; };f'
-
+alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code -r'
 
 export PYTHONSTARTUP=~/.pythonrc
 export THEOS=/opt/theos
