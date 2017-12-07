@@ -48,10 +48,13 @@ autocmd FileType make setlocal noexpandtab
 set noerrorbells
 set novisualbell
 
-" Allow usage of mouse in all mode
+" allow usage of mouse in all mode
 set mouse=a
 
-" Toggle relative line numbers
+" copy to clipboard
+set clipboard=unnamed
+
+" toggle relative line numbers
 set rnu
 function! ToggleRelativeOn()
     set rnu!
@@ -63,9 +66,10 @@ au FocusGained * call ToggleRelativeOn()
 au InsertEnter * call ToggleRelativeOn()
 au InsertLeave * call ToggleRelativeOn()
 
+" toggle paste mode
 set pastetoggle=<F10>
 
-" Moving lines up or down
+" moving lines up or down
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
 inoremap <C-j> <Esc>:m .+1<CR>==gi
@@ -79,40 +83,9 @@ au BufNewFile,BufRead *.hx set filetype=haxe
 au BufNewFile,BufRead *.hxml set filetype=hxml
 au BufNewFile,BufRead *.mm set filetype=objc
 au BufNewFile,BufRead *.m set filetype=objc
-au BufNewFile,BufRead *.py set filetype=python tabstop=8 shiftwidth=4 softtabstop=4
+au BufNewFile,BufRead *.py set filetype=python tabstop=4 shiftwidth=4 softtabstop=4
 au BufNewFile,BufRead *.md set filetype=markdown
-
-"" Ctags
-"let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
-"
-"" taglist
-"let Tlist_Show_One_File=1
-"let Tlist_Exit_OnlyWindow=1
-"let Tlist_Use_Right_Window=1
-"let tlist_haxe_settings='haxe;f:function;v:variable;c:class;i:interface;p:package'
-"map <f9> :Tlist<CR>
-
-" tagbar: Press <F8> and switch by Ctrl+w+w
-let tagbar_ctags_bin='/usr/local/bin/ctags'
-" haxe
-let tagbar_type_haxe={
-  \ 'ctagstype':'haxe',
-  \ 'kinds':['p:package','i:interface', 'c:class', 'e:enum', 't:typedef', 'v:variable', 'f:function']
-  \ }
-" objc
-let tagbar_type_objc = {
-  \ 'ctagstype': 'objc',
-  \ 'kinds': [
-  \   'i:class interface',
-  \   'I:class implementation',
-  \   'P:protocol',
-  \   'M:method',
-  \   't:typedef',
-  \   'v:variable',
-  \ ],
-  \ 'sro': ' ',
-  \}
-nmap <F8> :TagbarToggle<CR>
+au BufNewFile,BufRead *.js set filetype=javascript tabstop=2 softtabstop=2 shiftwidth=2
 
 " vim-easy-align
 vnoremap <silent> <Enter> :EasyAlign<Enter>
@@ -120,23 +93,57 @@ vnoremap <silent> <Enter> :EasyAlign<Enter>
 " astyle
 nmap <F9> :%!astyle -bps2 --brackets=attach --convert-tabs --mode=cs<CR>
 
-"" Vundle install :BundleInstall
-"set nocompatible
-"filetype off
-"set rtp+=~/.vim/bundle/vundle/
-"call vundle#rc()
-"Bundle 'gmarik/vundle'
-""Bundle 'Valloric/YouCompleteMe'
-"Bundle 'jdonaldson/vaxe'
-"Bundle 'Shougo/neocomplcache'
-"    let g:neocomplcache_enable_at_startup = 1 " always load neocc
-"    let g:neocomplcache_enable_auto_select = 1 " auto-popup!
-"    if !exists('g:neocomplcache_omni_patterns')
-"        let g:neocomplcache_omni_patterns = {} " set a default pattern dict
-"    endif
-"
-"    " this tells neocc when to try for completions... after '.', '(', etc.
-"    let g:neocomplcache_omni_patterns.haxe = '\v([\]''"\)]|\w|(^\s*))(\.|\()'
-"
-"filetype plugin indent on
-"" Vundle end
+" For any plugins that use this, make their keymappings use comma
+let mapleader=','
+
+" fzf
+set rtp+=/usr/local/opt/fzf
+nmap <Leader>r :Tags<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>a :Ag<CR>
+
+" list buffers
+nmap ; :Buffers<CR>
+
+" tell ack.vim to use ag (the Silver Searcher) instead
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" search for the word under the cursor in the current directory
+" <ctrl-w><ctrl-w> switch to quickfix window
+" q close quickfix window
+nmap <Leader>k mo:Ack! "\b<cword>\b"<CR>
+nmap <Leader>ki <Esc>:Ack! -u -i 
+
+" setup YouCompleteMe 
+if v:version >= 800 
+  let g:ycm_autoclose_preview_window_after_completion=1
+  map <leader>g :YcmCompleter GoTo<CR>
+endif
+
+" setup Vundle
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+if v:version >= 800 
+  Plugin 'Valloric/YouCompleteMe'
+endif
+Plugin 'junegunn/fzf.vim'
+Plugin 'mileszs/ack.vim'
+
+" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
