@@ -102,8 +102,11 @@ let mapleader=','
 
 " fzf
 " using homebrew
+" brew install fzf
 " set rtp+=/usr/local/opt/fzf
 " using git
+" git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+" ~/.fzf/install
 set rtp+=~/.fzf
 nmap <Leader>r :Tags<CR>
 nmap <Leader>t :Files<CR>
@@ -132,7 +135,7 @@ endif
 " setup Vundle
 " git clone
 " https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-" :PlugInstall
+" :PluginInstall
 set nocompatible              " required
 filetype off                  " required
 
