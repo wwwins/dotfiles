@@ -1,0 +1,159 @@
+syntax on
+
+set nocompatible
+set encoding=utf8
+set fileencoding=utf8
+set fileencodings=ucs-bom,utf8,cp950,latin1
+
+" 標示底線
+set cursorline
+
+" 顯示整行游標
+"set cursorcolumn
+
+" 顯示行數
+set nu
+
+" 右下角狀態列
+set ruler
+
+" 進擊的 search
+set hlsearch
+set ignorecase
+set incsearch
+nnoremap ,<space> :nohlsearch<CR>
+
+set shiftwidth=2
+set tabstop=2
+"set title
+set cindent
+set smartindent
+set smarttab
+set smartcase
+set autoindent
+" show matching ) and }
+set showmatch
+set expandtab
+
+" visual autocomplete for command menu
+set wildmenu
+
+" 上下捲動時留三行距離
+set scrolloff=3
+
+" ignore white space
+set diffopt+=iwhite
+
+" turn off expandtab for Makefile
+autocmd FileType make setlocal noexpandtab
+
+" disable sound on errors
+set noerrorbells
+set novisualbell
+
+" allow usage of mouse in all mode
+set mouse=a
+
+" copy to clipboard
+set clipboard=unnamed
+
+" setup statusline
+set laststatus=2
+
+" toggle relative line numbers
+set rnu
+function! ToggleRelativeOn()
+    set rnu!
+    set nu
+endfunction
+
+au FocusLost * call ToggleRelativeOn()
+au FocusGained * call ToggleRelativeOn()
+au InsertEnter * call ToggleRelativeOn()
+au InsertLeave * call ToggleRelativeOn()
+
+" toggle paste mode
+set pastetoggle=<F10>
+
+set list lcs=tab:\|\ 
+
+" moving lines up or down
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
+filetype on
+
+au BufNewFile,BufRead *.hx set filetype=haxe
+au BufNewFile,BufRead *.hxml set filetype=hxml
+au BufNewFile,BufRead *.mm set filetype=objc
+au BufNewFile,BufRead *.m set filetype=objc
+au BufNewFile,BufRead *.py set filetype=python tabstop=4 shiftwidth=4 softtabstop=4
+au BufNewFile,BufRead *.md set filetype=markdown
+au BufNewFile,BufRead *.js set filetype=javascript tabstop=2 softtabstop=2 shiftwidth=2
+
+colorscheme peachpuff
+
+" For any plugins that use this, make their keymappings use comma
+let mapleader=','
+
+" fzf
+" using homebrew
+" set rtp+=/usr/local/opt/fzf
+" using git
+set rtp+=~/.fzf
+nmap <Leader>r :Tags<CR>
+nmap <Leader>t :Files<CR>
+" nmap <Leader>a :Ag<CR>
+
+" list buffers
+nmap ; :Buffers<CR>
+
+" tell ack.vim to use ag (the Silver Searcher) instead
+" if executable('ag')
+"   let g:ackprg = 'ag --vimgrep'
+" endif
+
+" search for the word under the cursor in the current directory
+" <ctrl-w><ctrl-w> switch to quickfix window
+" q close quickfix window
+" nmap <Leader>k mo:Ack! "\b<cword>\b"<CR>
+" nmap <Leader>ki <Esc>:Ack! -u -i 
+
+" setup YouCompleteMe 
+if v:version >= 800 
+  let g:ycm_autoclose_preview_window_after_completion=1
+  map <leader>g :YcmCompleter GoTo<CR>
+endif
+
+" setup Vundle
+" git clone
+" https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" :PlugInstall
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+if v:version >= 800 
+  Plugin 'Valloric/YouCompleteMe'
+endif
+Plugin 'junegunn/fzf.vim'
+" Plugin 'mileszs/ack.vim'
+
+" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
