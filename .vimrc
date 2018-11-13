@@ -8,6 +8,9 @@ set fileencodings=ucs-bom,utf8,cp950,latin1
 " 標示底線
 set cursorline
 
+" 顯示整行游標
+"set cursorcolumn
+
 " 顯示行數
 set nu
 
@@ -54,20 +57,16 @@ set mouse=a
 " copy to clipboard
 set clipboard=unnamed
 
-" toggle relative line numbers
-set rnu
-function! ToggleRelativeOn()
-    set rnu!
-    set nu
-endfunction
+" setup statusline
+set laststatus=2
 
-au FocusLost * call ToggleRelativeOn()
-au FocusGained * call ToggleRelativeOn()
-au InsertEnter * call ToggleRelativeOn()
-au InsertLeave * call ToggleRelativeOn()
+" toggle relative line numbers
+noremap <F7> :set relativenumber!<CR>:set relativenumber?<CR>
 
 " toggle paste mode
 set pastetoggle=<F10>
+
+set list lcs=tab:\|\ 
 
 " moving lines up or down
 nnoremap <C-j> :m .+1<CR>==
@@ -76,6 +75,7 @@ inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
+
 
 filetype on
 
@@ -87,14 +87,19 @@ au BufNewFile,BufRead *.py set filetype=python tabstop=4 shiftwidth=4 softtabsto
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead *.js set filetype=javascript tabstop=2 softtabstop=2 shiftwidth=2
 
+colorscheme peachpuff
+
 " vim-easy-align
 vnoremap <silent> <Enter> :EasyAlign<Enter>
 
 " astyle
-nmap <F9> :%!astyle -bps2 --brackets=attach --convert-tabs --mode=cs<CR>
+"nmap <F9> :%!astyle -bps2 --brackets=attach --convert-tabs --mode=cs<CR>
 
 " For any plugins that use this, make their keymappings use comma
 let mapleader=','
+
+" replace 2 or more spaces with one space
+nmap <Leader>rss :%s/ \{2,}/ /g<CR>
 
 " fzf
 set rtp+=/usr/local/opt/fzf
@@ -103,7 +108,7 @@ nmap <Leader>t :Files<CR>
 nmap <Leader>a :Ag<CR>
 
 " list buffers
-nmap ; :Buffers<CR>
+nmap <Leader>b :Buffers<CR>
 
 " tell ack.vim to use ag (the Silver Searcher) instead
 if executable('ag')
@@ -114,13 +119,19 @@ endif
 " <ctrl-w><ctrl-w> switch to quickfix window
 " q close quickfix window
 nmap <Leader>k mo:Ack! "\b<cword>\b"<CR>
-nmap <Leader>ki <Esc>:Ack! -u -i 
+nmap <Leader>kk <Esc>:Ack! -u -i 
 
 " setup YouCompleteMe 
+" ,g: GoTo
+" ctrl-o: jump back
+" ctrl-i: jump forward
 if v:version >= 800 
   let g:ycm_autoclose_preview_window_after_completion=1
-  map <leader>g :YcmCompleter GoTo<CR>
+  map <Leader>g :YcmCompleter GoTo<CR>
 endif
+
+" ,f: yapf formats python code
+nmap <Leader>f :YAPF<CR>
 
 " setup Vundle
 set nocompatible              " required
@@ -140,9 +151,11 @@ if v:version >= 800
 endif
 Plugin 'junegunn/fzf.vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'itchyny/lightline.vim'
+Plugin 'francoiscabrol/ranger.vim'
+Plugin 'google/yapf', { 'rtp': 'plugins/vim' }
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
