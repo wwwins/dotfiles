@@ -76,6 +76,16 @@ inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
+" folding
+" zo = space: open fold
+" zc: close fold
+" zR: open all folds
+" zM: close all folds
+" not as cool as syntax, but faster
+set foldmethod=indent
+" start unfolded
+set foldlevelstart=99
+
 
 filetype on
 
