@@ -22,6 +22,8 @@ set hlsearch
 set ignorecase
 set incsearch
 nnoremap ,<space> :nohlsearch<CR>
+" * or #
+" quick search forward and backward
 
 set shiftwidth=2
 set tabstop=2
@@ -57,6 +59,11 @@ set mouse=a
 " copy to clipboard
 set clipboard=unnamed
 
+" copy: ctrl-c
+" paste: ctrl-p
+vnoremap <C-c> "*y
+nnoremap <C-p> "*p
+
 " setup statusline
 set laststatus=2
 
@@ -85,7 +92,8 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 set foldmethod=indent
 " start unfolded
 set foldlevelstart=99
-
+" fold top level
+set foldnestmax=1
 
 filetype on
 
@@ -96,9 +104,7 @@ au BufNewFile,BufRead *.m set filetype=objc
 au BufNewFile,BufRead *.py set filetype=python tabstop=4 shiftwidth=4 softtabstop=4
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead *.js set filetype=javascript tabstop=2 softtabstop=2 shiftwidth=2
-
-colorscheme peachpuff
-
+colorscheme peachpuff 
 " vim-easy-align
 vnoremap <silent> <Enter> :EasyAlign<Enter>
 
@@ -119,6 +125,8 @@ nmap <Leader>a :Ag<CR>
 
 " list buffers
 nmap <Leader>b :Buffers<CR>
+" delete buffer
+" :bd
 
 " tell ack.vim to use ag (the Silver Searcher) instead
 if executable('ag')
