@@ -64,6 +64,10 @@ set clipboard=unnamed
 vnoremap <C-c> "*y
 nnoremap <C-p> "*p
 
+" H/L jump to start/end of line(^/$)
+nnoremap H ^
+nnoremap L $
+
 " setup statusline
 set laststatus=2
 
@@ -116,6 +120,10 @@ let mapleader=','
 
 " replace 2 or more spaces with one space
 nmap <Leader>rss :%s/ \{2,}/ /g<CR>
+
+" ctags
+"set tags+=.git/tags
+"nnoremap <leader>ct :!/usr/local/bin/ctags -Rf .git/tags --tag-relative --extras=+f --exclude=.git,pkg --languages=-sql<cr><cr>
 
 " fzf
 set rtp+=/usr/local/opt/fzf
@@ -171,6 +179,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'francoiscabrol/ranger.vim'
+Plugin 'tmsvg/pear-tree'
 Plugin 'google/yapf', { 'rtp': 'plugins/vim' }
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
