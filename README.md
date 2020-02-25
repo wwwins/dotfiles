@@ -13,6 +13,9 @@ Set putty/item2 with Solarized theme.
 
 https://github.com/brantb/solarized
 
+### Hosts
+Update [hosts](https://someonewhocares.org/hosts/zero/)
+
 ### Screenshots:
 
 console:
