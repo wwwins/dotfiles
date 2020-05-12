@@ -72,12 +72,17 @@ nnoremap L $
 set laststatus=2
 
 " toggle relative line numbers
+set rnu
 noremap <F7> :set relativenumber!<CR>:set relativenumber?<CR>
 
 " toggle paste mode
 set pastetoggle=<F10>
 
-set list lcs=tab:\|\ 
+" show tabs and spaces
+"set list lcs=tab:\|\ 
+set showbreak=↪\ 
+"set list
+set listchars=space:˰,tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 
 " moving lines up or down
 nnoremap <C-j> :m .+1<CR>==
@@ -101,14 +106,14 @@ set foldnestmax=1
 
 filetype on
 
-au BufNewFile,BufRead *.hx set filetype=haxe
-au BufNewFile,BufRead *.hxml set filetype=hxml
 au BufNewFile,BufRead *.mm set filetype=objc
 au BufNewFile,BufRead *.m set filetype=objc
 au BufNewFile,BufRead *.py set filetype=python tabstop=4 shiftwidth=4 softtabstop=4
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead *.js set filetype=javascript tabstop=2 softtabstop=2 shiftwidth=2
-colorscheme peachpuff 
+au BufNewFile,BufRead *.{yml,yaml} set filetype=yaml tabstop=2 softtabstop=2 shiftwidth=2 
+colorscheme peachpuff
+
 " vim-easy-align
 vnoremap <silent> <Enter> :EasyAlign<Enter>
 
@@ -120,6 +125,14 @@ let mapleader=','
 
 " replace 2 or more spaces with one space
 nmap <Leader>rss :%s/ \{2,}/ /g<CR>
+
+" Add ' or " arround this word
+" ,' or ,"
+nmap <Leader>' ciw'<c-r>"'<esc>"
+nmap <Leader>" ciw"<c-r>""<esc>"
+
+" toggle list to show spaces
+nmap <Leader>l :set list!<CR>
 
 " ctags
 "set tags+=.git/tags
@@ -178,6 +191,7 @@ endif
 Plugin 'junegunn/fzf.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'itchyny/lightline.vim'
+Plugin 'tpope/vim-surround'
 Plugin 'francoiscabrol/ranger.vim'
 Plugin 'tmsvg/pear-tree'
 Plugin 'google/yapf', { 'rtp': 'plugins/vim' }
