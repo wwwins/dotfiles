@@ -92,6 +92,7 @@ alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/co
 # https://github.com/cnr-isti-vclab/meshlab/issues/64
 alias meshlabserver='/Applications/meshlab.app/Contents/MacOS/meshlabserver'
 
+export EDITOR=/usr/local/bin/vim
 export PYTHONSTARTUP=~/.pythonrc
 export THEOS=/opt/theos
 export LANG="zh_TW.UTF-8"
