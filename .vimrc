@@ -111,8 +111,8 @@ au BufNewFile,BufRead *.m set filetype=objc
 au BufNewFile,BufRead *.py set filetype=python tabstop=4 shiftwidth=4 softtabstop=4
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead *.js set filetype=javascript tabstop=2 softtabstop=2 shiftwidth=2
-au BufNewFile,BufRead *.{yml,yaml} set filetype=yaml tabstop=2 softtabstop=2 shiftwidth=2 
-colorscheme peachpuff
+au BufNewFile,BufRead *.{yml,yaml} set filetype=yaml tabstop=2 softtabstop=2 shiftwidth=2
+
 
 " vim-easy-align
 vnoremap <silent> <Enter> :EasyAlign<Enter>
@@ -195,9 +195,23 @@ Plugin 'tpope/vim-surround'
 Plugin 'francoiscabrol/ranger.vim'
 Plugin 'tmsvg/pear-tree'
 Plugin 'google/yapf', { 'rtp': 'plugins/vim' }
+Plugin 'cocopon/iceberg.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+
+
+set t_8f=[38;2;%lu;%lu;%lum
+set t_8b=[48;2;%lu;%lu;%lum
+set termguicolors
+set background=dark
+"colorscheme peachpuff
+colorscheme iceberg
+"colorscheme evening
+"colorscheme desert
+"colorscheme darkblue
+"colorscheme slate
