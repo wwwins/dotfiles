@@ -40,6 +40,15 @@ set expandtab
 " visual autocomplete for command menu
 set wildmenu
 
+" netrw file browsing
+" enter: open splits to the up
+" v: open splits to the right
+" t: to the tab
+let g:netrw_banner=0        " disable annoying banner
+let g:netrw_altv=1          " open splits to the right
+let g:netrw_browse_split=1  " open splits to the up
+let g:netrw_liststyle=3     " tree view
+
 " 上下捲動時留三行距離
 set scrolloff=3
 
@@ -91,6 +100,7 @@ inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
+
 
 " folding
 " zo = space: open fold
@@ -149,6 +159,7 @@ nmap <Leader>b :Buffers<CR>
 " delete buffer
 " :bd
 
+
 " tell ack.vim to use ag (the Silver Searcher) instead
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -192,10 +203,13 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-surround'
-Plugin 'francoiscabrol/ranger.vim'
+"Plugin 'francoiscabrol/ranger.vim'
 Plugin 'tmsvg/pear-tree'
+"Plugin 'ap/vim-css-color', { 'for': [ 'css', 'scss' ] }
 Plugin 'google/yapf', { 'rtp': 'plugins/vim' }
 Plugin 'cocopon/iceberg.vim'
+"Plugin 'sonph/onehalf', { 'rtp': 'vim/' }
+"Plugin 'connorholyday/vim-snazzy'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
@@ -211,6 +225,8 @@ set termguicolors
 set background=dark
 "colorscheme peachpuff
 colorscheme iceberg
+"colorscheme onehalfdark
+"colorscheme snazzy
 "colorscheme evening
 "colorscheme desert
 "colorscheme darkblue
