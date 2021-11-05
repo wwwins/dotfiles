@@ -37,6 +37,8 @@ set autoindent
 set showmatch
 set expandtab
 
+" display all matching files when we tab complete
+set path+=**
 " visual autocomplete for command menu
 set wildmenu
 
