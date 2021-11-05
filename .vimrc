@@ -51,6 +51,9 @@ let g:netrw_altv=1          " open splits to the right
 let g:netrw_browse_split=1  " open splits to the up
 let g:netrw_liststyle=3     " tree view
 
+" Colorizer for css and html files
+let g:colorizer_auto_filetype='css,html'
+"
 " 上下捲動時留三行距離
 set scrolloff=3
 
@@ -105,16 +108,20 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 
 
 " folding
-" zo = space: open fold
+nnoremap zz za
+" za: open/close fold
+" zo: open fold
 " zc: close fold
 " zR: open all folds
 " zM: close all folds
+" zj: move downwards to the next fold
+" zk: move forwards to the previous fold
 " not as cool as syntax, but faster
 set foldmethod=indent
 " start unfolded
-set foldlevelstart=99
+set foldlevelstart=2
 " fold top level
-set foldnestmax=1
+set foldnestmax=2
 
 filetype on
 
@@ -161,6 +168,8 @@ nmap <Leader>b :Buffers<CR>
 " delete buffer
 " :bd
 
+" Colorizer toggle
+nmap <Leader>ct : ColorToggle<CR>
 
 " tell ack.vim to use ag (the Silver Searcher) instead
 if executable('ag')
@@ -208,6 +217,7 @@ Plugin 'tpope/vim-surround'
 "Plugin 'francoiscabrol/ranger.vim'
 Plugin 'tmsvg/pear-tree'
 "Plugin 'ap/vim-css-color', { 'for': [ 'css', 'scss' ] }
+Plugin 'chrisbra/Colorizer', { 'for': [ 'css', 'scss' ] }
 Plugin 'google/yapf', { 'rtp': 'plugins/vim' }
 Plugin 'cocopon/iceberg.vim'
 "Plugin 'sonph/onehalf', { 'rtp': 'vim/' }
